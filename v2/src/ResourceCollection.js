@@ -5,11 +5,10 @@ const PaginatedResourceResponse = require('./PaginatedResourceResponse');
 class ResourceCollection extends Resource {
   constructor(resource, collects) {
     super(resource);
+
     this.wrap = collects.wrap;
     this.collects = collects;
-
     this.resource = this.collectResource(resource);
-
   }
 
   collectResource(resource) {

@@ -1,4 +1,4 @@
-const Resource = require('./Resource');
+const Resource = require('./src/Resource');
 
 class Transform extends Resource {
   toArray() {
@@ -8,20 +8,16 @@ class Transform extends Resource {
   }
 }
 
-const AbstractPaginator = require('./AbstractPaginator');
+const SimplePaginator = require('./SimplePaginator');
 
 Transform.withoutWrapping();
 Transform.wrap = "data"
 
-console.log('paginated collection', Transform.collection(new AbstractPaginator([{
+console.log('paginated collection', Transform.collection(new SimplePaginator([{
   id: '1'
 }, {
   id: '2'
-}])).additional({
-  meta: {
-    key: 'value'
-  }
-}).response())
+}])).additional().response())
 
 console.log('regular collection', Transform.collection([{
     id: '1'

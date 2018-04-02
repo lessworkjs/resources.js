@@ -18,6 +18,12 @@ class AbstractPaginator {
       return new className(item);
     });
   }
+
+  toArray() {
+    return {
+      data: this.items,
+    };
+  }
 }
 
 module.exports = AbstractPaginator;
