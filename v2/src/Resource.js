@@ -17,7 +17,21 @@ class Resource extends DelegatedResource {
   }
 
   resolve() {
-    return this.toArray();
+    return this.filter(this.toArray());
+  }
+
+  filter(data) {
+    Object.keys(data).forEach((key) => {
+      if (Array.isArray(data[key])) {
+        data[key] = this.filter(data[key]);
+        return;
+      }
+
+    })
+
+    // Other filter stuff..
+
+    return data;
   }
 
   response() {

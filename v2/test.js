@@ -13,23 +13,31 @@ const SimplePaginator = require('./SimplePaginator');
 Transform.withoutWrapping();
 Transform.wrap = "data"
 
-console.log('paginated collection', Transform.collection(new SimplePaginator([{
-  id: '1'
-}, {
-  id: '2'
-}])).additional().response())
-
 console.log('regular collection', Transform.collection([{
     id: '1'
   },
   {
-    id: '2'
+    id: Transform.collection([{
+        id: '1'
+      },
+      {
+        id: '2'
+      }
+    ]) // how does this resolve??
   }
 ]).additional({
   meta: {
     key: 'value'
   }
-}).response())
+}).response().data[1])
+
+return
+
+console.log('paginated collection', Transform.collection(new SimplePaginator([{
+  id: '1'
+}, {
+  id: '2'
+}])).additional().response())
 
 Transform.wrap = null
 
