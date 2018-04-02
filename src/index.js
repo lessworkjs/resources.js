@@ -16,7 +16,7 @@ class Resource {
 
   static collection(array, wrap = true) {
     array = array || [];
-    const collection = array.data ? array.data : (Array.isArray(array) ? array : []);
+    const collection = array.data ? array.data : array;
 
     const data = collection.map(item => {
       return new this(item, false);

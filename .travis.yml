@@ -1,0 +1,8 @@
+language: node_js
+node_js:
+- 6.10.3
+sudo: false
+install:
+- npm install
+notifications:
+after_success: npm run coverage

@@ -1,10 +1,11 @@
 {
   "name": "resources.js",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A javascript data transformation layer.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc --all mocha \"test/**/*.spec.js\"",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -16,12 +17,21 @@
     "transformer",
     "resources",
     "laravel resources",
-    "fractal"
+    "fractal",
+    "resources",
+    "resources.js",
+    "resourcesjs"
   ],
   "author": "William Bowman",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lessworkjs/resources.js/issues"
   },
-  "homepage": "https://github.com/lessworkjs/resources.js#readme"
+  "homepage": "https://github.com/lessworkjs/resources.js#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "japa": "^1.0.6",
+    "nyc": "^11.6.0"
+  }
 }

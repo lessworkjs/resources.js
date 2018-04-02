@@ -1,3 +1,7 @@
+[![Coverage Status](https://coveralls.io/repos/github/lessworkjs/resources.js/badge.svg?branch=master)](https://coveralls.io/github/lessworkjs/resources.js?branch=master)
+[![Build Status](https://travis-ci.org/lessworkjs/resources.js.svg?branch=master)](https://travis-ci.org/lessworkjs/resources.js)
+
+
 # resources.js
 A javascript data transformation layer.
 
@@ -223,5 +227,4 @@ Now when you do a transformation you'll see `posts`
 ```
 
  # TO-DO
-* tests :D
-* Conditional Attributes would be nice
+ Conditional Attributes would be nice. You would need to call a `.process()` function to generate the results.
