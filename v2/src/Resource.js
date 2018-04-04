@@ -26,7 +26,6 @@ class Resource extends DelegatedResource {
         data[key] = this.filter(data[key]);
         return;
       }
-
     })
 
     // Other filter stuff..

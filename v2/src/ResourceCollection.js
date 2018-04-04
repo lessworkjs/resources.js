@@ -1,6 +1,7 @@
 const Resource = require('./Resource');
 const AbstractPaginator = require('./AbstractPaginator');
 const PaginatedResourceResponse = require('./PaginatedResourceResponse');
+const MissingValue = require('./MissingValue');
 
 class ResourceCollection extends Resource {
   constructor(resource, collects) {
@@ -12,6 +13,10 @@ class ResourceCollection extends Resource {
   }
 
   collectResource(resource) {
+    if (resource instanceof MissingValue) {
+      return resource;
+    }
+
     if (resource instanceof AbstractPaginator) {
       this.collection = resource.mapInto(this.collects)
 

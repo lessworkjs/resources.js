@@ -1,5 +1,3 @@
-'use strict';
-
 class Resource {
   constructor(object, wrap = true) {
     Object.assign(this, object);
@@ -7,7 +5,7 @@ class Resource {
 
     if (wrap) {
       return {
-        data
+        data,
       };
     }
 
@@ -18,20 +16,18 @@ class Resource {
     array = array || [];
     const collection = array.data ? array.data : array;
 
-    const data = collection.map(item => {
-      return new this(item, false);
-    });
+    const data = collection.map(item => new this(item, false));
 
     if (array.data) {
       return Object.assign({}, array, {
-        data
+        data,
       });
     }
 
     if (wrap) {
       return {
-        data
-      }
+        data,
+      };
     }
 
     return data;
