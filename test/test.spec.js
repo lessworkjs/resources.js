@@ -1,7 +1,6 @@
 const test = require('japa');
 const path = require('path');
 const chai = require('chai');
-
 const expect = chai.expect;
 
 const Resource = require('../src/');
@@ -19,57 +18,59 @@ test.group('Resource', (group) => {
           name: 'Bob',
           email: 'bob@bob.com',
           posts: {
-            'data': [{
-              title: 'im cool - Title',
+            "data": [{
+              "title": "im cool - Title"
             }, {
-              title: 'so cool cool - Title',
-            }],
+              "title": "so cool cool - Title"
+            }]
           },
           created_at: 'today',
-          updated_at: 'today',
+          updated_at: 'today'
         },
         {
           id: 2,
           name: 'Waldo',
           email: 'waldo@waldo.com',
           posts: {
-            'data': [],
+            "data": []
           },
           created_at: 'today',
-          updated_at: 'today',
-        },
-      ],
+          updated_at: 'today'
+        }
+      ]
     });
   });
 
   test('should transform a collection without wrapper.', (assert) => {
     const collection = UserResource.collection(data, false);
 
-    expect(collection).to.deep.equal([{
-        id: 1,
-        name: 'Bob',
-        email: 'bob@bob.com',
-        posts: {
-          'data': [{
-            title: 'im cool - Title',
-          }, {
-            title: 'so cool cool - Title',
-          }],
+    expect(collection).to.deep.equal(
+      [{
+          id: 1,
+          name: 'Bob',
+          email: 'bob@bob.com',
+          posts: {
+            "data": [{
+              "title": "im cool - Title"
+            }, {
+              "title": "so cool cool - Title"
+            }]
+          },
+          created_at: 'today',
+          updated_at: 'today'
         },
-        created_at: 'today',
-        updated_at: 'today',
-      },
-      {
-        id: 2,
-        name: 'Waldo',
-        email: 'waldo@waldo.com',
-        posts: {
-          data: [],
-        },
-        created_at: 'today',
-        updated_at: 'today',
-      },
-    ], );
+        {
+          id: 2,
+          name: 'Waldo',
+          email: 'waldo@waldo.com',
+          posts: {
+            "data": []
+          },
+          created_at: 'today',
+          updated_at: 'today'
+        }
+      ]
+    );
   });
 
   test('should transform a single item.', (assert) => {
@@ -81,15 +82,15 @@ test.group('Resource', (group) => {
         name: 'Bob',
         email: 'bob@bob.com',
         posts: {
-          data: [{
-            title: 'im cool - Title',
+          "data": [{
+            "title": "im cool - Title"
           }, {
-            'title': 'so cool cool - Title',
-          }],
+            "title": "so cool cool - Title"
+          }]
         },
         created_at: 'today',
-        updated_at: 'today',
-      },
+        updated_at: 'today'
+      }
     });
   });
 
@@ -101,20 +102,20 @@ test.group('Resource', (group) => {
       name: 'Bob',
       email: 'bob@bob.com',
       posts: {
-        data: [{
-          title: 'im cool - Title',
+        "data": [{
+          "title": "im cool - Title"
         }, {
-          'title': 'so cool cool - Title',
-        }],
+          "title": "so cool cool - Title"
+        }]
       },
       created_at: 'today',
-      updated_at: 'today',
+      updated_at: 'today'
     });
   });
 
   test('should transform a collection with the data key.', (assert) => {
     const collection = UserResource.collection({
-      data,
+      data: data
     });
 
     expect(collection).to.deep.equal({
@@ -123,26 +124,26 @@ test.group('Resource', (group) => {
           name: 'Bob',
           email: 'bob@bob.com',
           posts: {
-            'data': [{
-              'title': 'im cool - Title',
+            "data": [{
+              "title": "im cool - Title"
             }, {
-              'title': 'so cool cool - Title',
-            }],
+              "title": "so cool cool - Title"
+            }]
           },
           created_at: 'today',
-          updated_at: 'today',
+          updated_at: 'today'
         },
         {
           id: 2,
           name: 'Waldo',
           email: 'waldo@waldo.com',
           posts: {
-            'data': [],
+            "data": []
           },
           created_at: 'today',
-          updated_at: 'today',
-        },
-      ],
+          updated_at: 'today'
+        }
+      ]
     });
   });
 
@@ -155,13 +156,13 @@ test.group('Resource', (group) => {
         name: 'Bob',
         email: 'bob@bob.com',
         posts: [{
-          title: 'im cool',
+          "title": "im cool"
         }, {
-          'title': 'so cool cool',
+          "title": "so cool cool"
         }],
         created_at: 'today',
-        updated_at: 'today',
-      },
+        updated_at: 'today'
+      }
     });
   });
 });
