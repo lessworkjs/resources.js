@@ -1,4 +1,4 @@
-class DelegatedResource {
+class DelegatesToResource {
   constructor(resource) {
     this.resource = resource;
 
@@ -20,4 +20,4 @@ class DelegatedResource {
   }
 }
 
-module.exports = DelegatedResource;
+module.exports = DelegatesToResource;
