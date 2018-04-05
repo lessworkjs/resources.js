@@ -9,7 +9,7 @@ Inspired by Laravels [Eloquent API Resources](https://laravel.com/docs/5.6/eloqu
 
 # Installation
 ```bash
-npm install resources.js --save
+npm i resources.js
 ```
 
 # Basic Usage
@@ -225,6 +225,3 @@ Now when you do a transformation you'll see `posts`
      updated_at: 'today' } }
  */
 ```
-
- # TO-DO
- Conditional Attributes would be nice. You would need to call a `.process()` function to generate the results.
