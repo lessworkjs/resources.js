@@ -1,6 +1,6 @@
-const DelegatedResource = require('./DelegatedResource');
+const DelegatesToResource = require('./DelegatesToResource');
 
-class Resource extends DelegatedResource {
+class Resource extends DelegatesToResource {
   constructor(object, wrap = true) {
     super(object);
 
