@@ -1,5 +1,3 @@
-'use strict';
-
 const test = require('japa');
 const path = require('path');
 const chai = require('chai');

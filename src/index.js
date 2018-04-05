@@ -1,6 +1,9 @@
-class Resource {
+const DelegatesToResource = require('./DelegatesToResource');
+
+class Resource extends DelegatesToResource {
   constructor(object, wrap = true) {
-    Object.assign(this, object);
+    super(object);
+
     const data = this.toArray();
 
     if (wrap) {
@@ -34,7 +37,7 @@ class Resource {
   }
 
   toArray() {
-    return Object.assign({}, this);
+    return Object.assign({}, this.resource);
   }
 }
 
