@@ -1,7 +1,7 @@
 class DelegatesToResource {
   constructor(resource) {
     if (!(resource instanceof Object)) {
-      resource = {};
+      return false;
     }
 
     this.resource = resource;

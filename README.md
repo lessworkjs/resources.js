@@ -61,7 +61,7 @@ const data = [{
 
 Then you can transform a single item:
 ```js 
-const single = new UserResource(data[0]);
+const single = new UserResource(data[0]).exec();
 console.log(single);
 /**
  *  { data:
@@ -101,7 +101,7 @@ console.log(collection);
 You can enable the data wrapper by passing true to the second arguement for both methods.
 
 ```js 
-const single = new UserResource(data[0], false);
+const single = new UserResource(data[0], true).exec();
 console.log(single);
 /**
  *  { id: 1,
@@ -114,7 +114,7 @@ console.log(single);
 
 Or all of them
 ```js 
-const collection = UserResource.collection(data, false);
+const collection = UserResource.collection(data, true);
 console.log(collection);
 /**
  *  [ { id: 1,
@@ -201,7 +201,7 @@ class UserResource extends Resource {
       id: Number(this.id),
       name: this.name,
       email: this.email,
-      posts: PostResource.collection(this.posts),
+      posts: PostResource.collection(this.posts, true),
       created_at: this.created_at,
       updated_at: this.updated_at,
     }

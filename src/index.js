@@ -1,25 +1,37 @@
 const DelegatesToResource = require('./DelegatesToResource');
 
 class Resource extends DelegatesToResource {
-  constructor(object, wrap = false) {
+  constructor(object, wrap) {
     super(object);
+
+    if (!(object instanceof Object)) {
+      this.data = null;
+      return this;
+    }
 
     const data = this.toArray();
 
     if (wrap) {
-      return {
+      this.data = {
         data,
       };
+
+      return this;
     }
 
-    return data;
+    this.data = data;
+    return this;
   }
 
-  static collection(array, wrap = false) {
+  exec() {
+    return this.data || null;
+  }
+
+  static collection(array, wrap) {
     array = array || [];
     const collection = array.data ? array.data : array;
 
-    const data = collection.map(item => new this(item, false));
+    const data = collection.map(item => new this(item, false).exec());
 
     if (array.data) {
       return Object.assign({}, array, {

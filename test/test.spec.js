@@ -74,7 +74,7 @@ test.group('Resource', (group) => {
   });
 
   test('should transform a single item.', (assert) => {
-    const single = new UserResource(data[0], true);
+    const single = new UserResource(data[0], true).exec();
 
     expect(single).to.deep.equal({
       data: {
@@ -95,7 +95,7 @@ test.group('Resource', (group) => {
   });
 
   test('should transform a single item without wrapper.', (assert) => {
-    const single = new UserResource(data[0], false);
+    const single = new UserResource(data[0], false).exec();
 
     expect(single).to.deep.equal({
       id: 1,
@@ -148,7 +148,7 @@ test.group('Resource', (group) => {
   });
 
   test('should transform a single item without toArray.', (assert) => {
-    const single = new BlankResource(data[0], true);
+    const single = new BlankResource(data[0], true).exec();
 
     expect(single).to.deep.equal({
       data: {
@@ -164,5 +164,11 @@ test.group('Resource', (group) => {
         updated_at: 'today'
       }
     });
+  });
+
+  test('should return null', (assert) => {
+    const single = new BlankResource(null).exec();
+
+    expect(single).to.be.null;
   });
 });
