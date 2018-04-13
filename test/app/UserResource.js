@@ -7,7 +7,7 @@ class UserResource extends Resource {
       id: Number(this.id),
       name: this.name,
       email: this.email,
-      posts: PostResource.collection(this.posts),
+      posts: PostResource.collection(this.posts, true),
       created_at: this.created_at,
       updated_at: this.updated_at,
     }

@@ -10,7 +10,7 @@ const data = require('./app/data');
 
 test.group('Resource', (group) => {
   test('should transform a collection.', (assert) => {
-    const collection = UserResource.collection(data);
+    const collection = UserResource.collection(data, true);
 
     expect(collection).to.deep.equal({
       data: [{
@@ -74,7 +74,7 @@ test.group('Resource', (group) => {
   });
 
   test('should transform a single item.', (assert) => {
-    const single = new UserResource(data[0]);
+    const single = new UserResource(data[0], true);
 
     expect(single).to.deep.equal({
       data: {
@@ -116,7 +116,7 @@ test.group('Resource', (group) => {
   test('should transform a collection with the data key.', (assert) => {
     const collection = UserResource.collection({
       data: data
-    });
+    }, true);
 
     expect(collection).to.deep.equal({
       data: [{
@@ -148,7 +148,7 @@ test.group('Resource', (group) => {
   });
 
   test('should transform a single item without toArray.', (assert) => {
-    const single = new BlankResource(data[0]);
+    const single = new BlankResource(data[0], true);
 
     expect(single).to.deep.equal({
       data: {

@@ -1,5 +1,9 @@
 class DelegatesToResource {
   constructor(resource) {
+    if (!(resource instanceof Object)) {
+      resource = {};
+    }
+
     this.resource = resource;
 
     this.proxy = new Proxy(this, {

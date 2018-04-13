@@ -98,9 +98,7 @@ console.log(collection);
 
 # Advance Usage
 ## Data wrapper 
-By default your results will be wrapped in a data attribute.
-
-You can disable this by passing false to the second arguement for both methods.
+You can enable the data wrapper by passing true to the second arguement for both methods.
 
 ```js 
 const single = new UserResource(data[0], false);

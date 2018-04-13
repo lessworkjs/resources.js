@@ -1,7 +1,7 @@
 const DelegatesToResource = require('./DelegatesToResource');
 
 class Resource extends DelegatesToResource {
-  constructor(object, wrap = true) {
+  constructor(object, wrap = false) {
     super(object);
 
     const data = this.toArray();
@@ -15,7 +15,7 @@ class Resource extends DelegatesToResource {
     return data;
   }
 
-  static collection(array, wrap = true) {
+  static collection(array, wrap = false) {
     array = array || [];
     const collection = array.data ? array.data : array;
 
